@@ -1,0 +1,48 @@
+[user]
+    name = Chuka Okoye
+    email = contact@chookah.org
+[core]
+    excludesfile = ~/.gitignore
+    editor = vim +0
+    pager = less -FMRiX
+[color]
+    ui = auto
+    diff = auto
+    status = auto
+    branch = auto
+[merge]
+    tool = vimdiff
+[alias]
+    di = diff --patience
+    do = diff --patience origin/master --
+    ci = commit
+    cia = commit -a
+    ci-a = commit --amend
+    co = checkout
+    cm = checkout master
+    c-p = cherry-pick
+    st = status
+    s = show --patience
+    l = log --pretty=format:'%Cgreen%h %an %ad %ar%n%Cblue%B' --name-status
+    l1= !eval git log -1 --pretty=format:'%B' | head -1
+    lp = log --pretty=format:'%Cgreen%h %an %ad %ar%n%Cblue%B' -p
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    lo = log --patience
+    up = pull --rebase --stat
+    rbc = rebase --continue
+    squash = rebase --interactive origin/master
+    b = branch
+    sup = svn rebase
+    sci = svn dcommit --rmdir
+    cr-diff = diff -M -U999999999 --no-color origin/master..HEAD --
+    null-diff = diff -M -U999999999 --no-color `git log --pretty=tformat:'%H' | tail -1`..HEAD --
+    last = cat-file commit HEAD
+    top = !eval cd "$(pwd)/$(git rev-parse --show-cdup)" && pwd
+    amend = commit --amend -C HEAD
+    dag = log --graph --format='format:%C(yellow)%h%C(reset) %C(blue)\"%an\" <%ae>%C(reset) %C(magenta)%cr%C(reset)%C(auto)%d%C(reset)%n%s' --date-order
+[diff]
+    renames = true
+    ignore-space-change = true
+    ignore-all-space = true
+[push]
+    default = simple
